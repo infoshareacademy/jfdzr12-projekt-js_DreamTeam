@@ -5,11 +5,11 @@ let sentence = "Moje zdanie z #różnymi #moimi z #hashtagami bla #lalala";
 function getHashtagWords(sentence) {
     const sentenceArray = sentence.split(" ");
     const hashtag = "#";
-    return sentenceArray.filter(words => {return words.includes(hashtag)})
+    return sentenceArray.filter(words => words.startsWith(hashtag));
 }
 
 const hashtagWords = getHashtagWords(sentence);
-console.log(hashtagWords)
+console.log(hashtagWords);
 
 
 
@@ -18,9 +18,9 @@ console.log(hashtagWords)
 let format = "monika-Pławska-Wilk"
 
 function getPascalCase(format) {
-    const array = format.split("").filter(letter => {return letter !== "-" && letter !== "_"});
-    array[0] = array[0].toUpperCase();
-    return array.join("")
+    const array = format.split(/[-_]/);
+    const wordsToUpperCase = array.map(word => word[0].toUpperCase() + word.slice(1)).join("");
+    return wordsToUpperCase;
 }
 
 const pascalCase = getPascalCase(format);
