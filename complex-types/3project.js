@@ -19,11 +19,9 @@ const basket = [{
 
 // addToBasket(basket, recentOrder)
 
-function addToBasket (recentBasket, newBasket) {
-const basket = [...recentBasket.products, ...newBasket];
-return basket;
+function addToBasket (recentOrder, basket) {
+const newBasket = [...recentOrder.products, ...basket];
+return newBasket;
 }
-const new1 = addToBasket(recentOrder, basket)
-recentOrder.products[0].name = 'banana'
-console.log(new1);
-// console.log(recentOrder);
+const result = addToBasket(recentOrder, basket);
+console.log(result);
